@@ -1,0 +1,65 @@
+var identifier
+var name
+var armorRange = []
+var hpRange = []
+var levelByLocation = []
+var encouterNumber
+//identifier is the foe string
+//name is the foe.name
+//armorRange is a list of foe.level followed by foe.maxarmor
+//hpRange is a list of foe.level followed by foe.maxhp
+//levelByLocation is a list of loc.name followed by loc and loc.stars, accompanied by the foe.level found on the loc
+//first foe found: loc.name + "#" + loc + "#" + loc.stars + "#" + foe.level, aditinoal ones: levelByLocation[] + foe.level
+
+func setIdentifier(value)
+ identifier = value
+
+func setName(value)
+ name = value
+
+func setArmor(value)
+ ? ! armorRange.Contains(value)
+  armorRange.Add(value)
+  armorRange.Sort()
+
+func setHp(value)
+ ? ! hpRange.Contains(value)
+  hpRange.Add(value)
+  hpRange.Sort()
+
+func setLocation(name, place, stars, level)
+ ?levelByLocation.Contains(place+"#"+stars)
+  levelByLocation.Emplace(levelByLocation.IndexOf(place+"#"+stars), levelByLocation[levelByLocation.IndexOf(place+"#"+stars)]+"#"+level)
+  levelByLocation.Sort()
+ :
+  levelByLocation.Add(name+"#"+place"#"+stars+"#"+level)
+  levelByLocation.Sort()
+  
+func addNewData(identifier, name, level, armor, hp, locationName, location, locationStars)
+ setIdentifier(identifier)
+ setName(name)
+ setArmor(level+"#"+armor)
+ setHp(level+"#"+hp)
+ setLocation(locationName, location, locationStars, level)
+ this.encouterNumber = 1
+
+fun addExistData(level, armor, hp, locationName, location, locationStars)
+ setArmor(level+"#"+armor)
+ setHp(level+"#"+hp)
+ setLocation(locationName, location, locationStars, level)
+ this.encouterNumber++
+
+func getIdentifier()
+ return this.identifier
+
+func getName()
+ return this.name
+
+func getArmor(position)
+ return this.armorRange[position]
+
+func getHp(position)
+ return this.hpRange[position]
+
+func getLocation(position)
+ return this.levelByLocation[position]

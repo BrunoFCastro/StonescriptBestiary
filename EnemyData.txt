@@ -1,0 +1,23 @@
+var enemyArray = []
+
+?storage.Has("enemyData")
+ enemyArray = storage.Get("enemyData")
+
+func addEnemy(identifier, name, level, armor, hp, locationName, location, locationStars)
+ var aux
+ ?enemyArray.Count() > 0
+  for i = 0..enemyArray.Count()-1
+   aux = enemyArray[i].getIdentifier()
+   ?aux = identifier
+    enemyArray[i].addExistData(level, armor, hp, locationName, location, locationStars)
+	storage.Set("enemyData", enemyArray)
+   :
+    aux = new EnemyStorage
+    aux.addNewData(identifier, name, level, armor, hp, locationName, location, locationStars
+    enemyArray.Add(aux)
+	storage.Set("enemyData", enemyArray)
+ :
+  aux = new EnemyStorage
+  aux.addNewData(identifier, name, level, armor, hp, locationName, location, locationStars
+  enemyArray.Add(aux)
+  storage.Set("enemyData", enemyArray)
